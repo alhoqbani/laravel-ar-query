@@ -8,7 +8,7 @@ class Author extends Model
 {
     public function posts()
     {
-        return $this->hasMany(NewsPost::class);
+        return $this->hasMany(Post::class);
     }
     
     public function city()

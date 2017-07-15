@@ -14,6 +14,6 @@ class City extends Model
     
     public function posts()
     {
-        return $this->hasManyThrough(NewsPost::class, Author::class);
+        return $this->hasManyThrough(Post::class, Author::class);
     }
 }
