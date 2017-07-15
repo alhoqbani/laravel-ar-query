@@ -4,8 +4,61 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "96098e473b028cdb2529580554a1ae3e",
+    "content-hash": "611fa12a94d41ac4bd7cace15ef40485",
     "packages": [
+        {
+            "name": "arutil/ar-php",
+            "version": "dev-arutil",
+            "source": {
+                "type": "git",
+                "url": "/Users/hamoud/Sites/ar-php",
+                "reference": "f42a62c21ce9651f647c6982620cf9e3a950033d"
+            },
+            "require": {
+                "nesbot/carbon": "^1.22",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "illuminate/support": "^5.4",
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ArUtil\\": "src/ArUtil"
+                },
+                "files": [
+                    "src/bootstrap.php"
+                ]
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "ArUtil\\Tests\\": "tests"
+                }
+            },
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Khaled Al-Shamaa",
+                    "email": "khaled@ar-php.org",
+                    "homepage": "http://www.ar-php.org"
+                },
+                {
+                    "name": "Hamoud Alhoqbani",
+                    "email": "h.alhoqbani@gmail.com"
+                }
+            ],
+            "description": "Arabic php utilities from Khaled Al-Sham'aa's library http://ar-php.org/",
+            "homepage": "https://github.com/alhoqbani/ar-php",
+            "keywords": [
+                "Arabic",
+                "Hijri",
+                "Islamic"
+            ],
+            "time": "2017-07-15 21:50:26"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
@@ -3361,7 +3414,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "arutil/ar-php": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
