@@ -11,11 +11,16 @@
   },
   "devDependencies": {
     "axios": "^0.16.2",
-    "bootstrap-sass": "^3.3.7",
+    "bootstrap-less": "^3.3.4",
+    "bootstrap-rtl": "^3.3.4",
     "cross-env": "^5.0.1",
     "jquery": "^3.1.1",
     "laravel-mix": "^1.0",
-    "lodash": "^4.17.4",
     "vue": "^2.1.10"
+  },
+  "dependencies": {
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5",
+    "yarn": "^0.27.5"
   }
 }

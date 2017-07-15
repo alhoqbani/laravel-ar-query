@@ -12,7 +12,7 @@
             "source": {
                 "type": "git",
                 "url": "/Users/hamoud/Sites/ar-php",
-                "reference": "f42a62c21ce9651f647c6982620cf9e3a950033d"
+                "reference": "3d78da914350fadab5ad70d7022c990b9d869dc7"
             },
             "require": {
                 "nesbot/carbon": "^1.22",
@@ -57,7 +57,7 @@
                 "Hijri",
                 "Islamic"
             ],
-            "time": "2017-07-15 21:50:26"
+            "time": "2017-07-15 22:33:31"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
