@@ -24,4 +24,17 @@ class SearchController extends Controller
         
         return view('search.index');
     }
+    
+    public function suggest()
+    {
+        $query = Post::query();
+        $q = request('q');
+        $regexPs = ArUtil::query()->regexpy($q);
+        foreach ((array)$regexPs as $regex) {
+            $query->where('title', 'regexp', $regex);
+            $query->orWhere('short_title', 'regexp', $regex);
+        }
+        $posts = $query->get();
+        return response()->json(['date' => $posts]);
+    }
 }

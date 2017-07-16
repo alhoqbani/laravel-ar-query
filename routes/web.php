@@ -11,11 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    
-    
-    
-    return view('welcome');
-});
+Route::get('/', 'PostsController@index')->name('posts.index');
+Route::get('/{post}', 'PostsController@show')->name('posts.show');
 
 Route::get('search', 'SearchController@index')->name('search');
+Route::post('search', 'SearchController@suggest')->name('search');

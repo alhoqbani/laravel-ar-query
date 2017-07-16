@@ -800,8 +800,10 @@ var app = new Vue({
             }
         },
         fetchSuggestions: function fetchSuggestions() {
-            axios.post('/search').then(function (data) {
-                return console.log(data);
+            axios.post('/search', { q: this.query }).then(function (_ref) {
+                var data = _ref.data;
+
+                console.log(data);
             });
         }
     }

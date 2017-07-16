@@ -14,7 +14,10 @@ const app = new Vue({
             }
         },
         fetchSuggestions: function () {
-            axios.post('/search').then(data => console.log(data));
+            axios.post('/search', {q: this.query})
+                .then(function ({data}) {
+                    console.log(data);
+                });
         }
     }
 });
