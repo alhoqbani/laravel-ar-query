@@ -9,7 +9,8 @@ class PostsController extends Controller
 {
     public function index()
     {
-        $posts = Post::paginate(20);
+        $posts = Post::all(['id', 'title']);
+
         return view('posts.index', compact('posts'));
     }
     

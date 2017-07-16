@@ -784,28 +784,16 @@ module.exports = __webpack_require__(39);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__bootstrap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Posts_vue__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Posts_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Posts_vue__);
 
 
-Vue.component('example', __webpack_require__(35));
+
 
 var app = new Vue({
     el: '#app',
-    data: {
-        query: ''
-    },
-    methods: {
-        suggest: function suggest($e) {
-            if (this.query.length > 3) {
-                this.fetchSuggestions();
-            }
-        },
-        fetchSuggestions: function fetchSuggestions() {
-            axios.post('/search', { q: this.query }).then(function (_ref) {
-                var data = _ref.data;
-
-                console.log(data);
-            });
-        }
+    components: {
+        posts: __WEBPACK_IMPORTED_MODULE_1__components_Posts_vue___default.a
     }
 });
 
@@ -22221,46 +22209,7 @@ module.exports = Vue$3;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 35 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var Component = __webpack_require__(36)(
-  /* script */
-  __webpack_require__(37),
-  /* template */
-  __webpack_require__(38),
-  /* styles */
-  null,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/Users/hamoud/Sites/laravel-ar-query/resources/assets/js/components/Example.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] Example.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7ecce706", Component.options)
-  } else {
-    hotAPI.reload("data-v-7ecce706", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
+/* 35 */,
 /* 36 */
 /***/ (function(module, exports) {
 
@@ -22358,64 +22307,8 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 37 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        console.log('Component mounted.');
-    }
-});
-
-/***/ }),
-/* 38 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _vm._m(0)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "container"
-  }, [_c('div', {
-    staticClass: "row"
-  }, [_c('div', {
-    staticClass: "col-md-8 col-md-offset-2"
-  }, [_c('div', {
-    staticClass: "panel panel-default"
-  }, [_c('div', {
-    staticClass: "panel-heading"
-  }, [_vm._v("Example Component")]), _vm._v(" "), _c('div', {
-    staticClass: "panel-body"
-  }, [_vm._v("\n                    I'm an example component!\n                ")])])])])])
-}]}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-7ecce706", module.exports)
-  }
-}
-
-/***/ }),
+/* 37 */,
+/* 38 */,
 /* 39 */
 /***/ (function(module, exports) {
 
@@ -24867,6 +24760,138 @@ __webpack_require__(61)
 
 }(jQuery);
 
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__(36)(
+  /* script */
+  __webpack_require__(63),
+  /* template */
+  __webpack_require__(64),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/hamoud/Sites/laravel-ar-query/resources/assets/js/components/Posts.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Posts.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-b3a9b422", Component.options)
+  } else {
+    hotAPI.reload("data-v-b3a9b422", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 63 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: 'posts',
+    props: ['posts'],
+    data: function data() {
+        return {
+            query: ''
+        };
+    },
+    mounted: function mounted() {
+        console.log('Component mounted.');
+    },
+
+    methods: {
+        suggest: function suggest() {
+            if (this.query.length > 3) {
+                this.fetchSuggestions();
+            }
+        },
+        fetchSuggestions: function fetchSuggestions() {
+            axios.post('/search', { q: this.query }).then(function (_ref) {
+                var data = _ref.data;
+
+                console.log(data);
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 64 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "list-group"
+  }, [_c('p', [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.query),
+      expression: "query"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "placeholder": "فرز حسب الاسم.."
+    },
+    domProps: {
+      "value": (_vm.query)
+    },
+    on: {
+      "keyup": _vm.suggest,
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.query = $event.target.value
+      }
+    }
+  })]), _vm._v(" "), _vm._l((_vm.posts), function(post) {
+    return _c('a', {
+      key: post.id,
+      staticClass: "list-group-item",
+      attrs: {
+        "href": "#"
+      },
+      domProps: {
+        "textContent": _vm._s(post.title)
+      }
+    })
+  })], 2)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-b3a9b422", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

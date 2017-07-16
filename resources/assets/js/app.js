@@ -1,23 +1,10 @@
 import "./bootstrap";
 
-Vue.component('example', require('./components/Example.vue'));
+import posts from './components/Posts.vue';
 
 const app = new Vue({
     el: '#app',
-    data: {
-        query: '',
+    components: {
+        posts
     },
-    methods: {
-        suggest: function ($e) {
-            if (this.query.length > 3) {
-                this.fetchSuggestions();
-            }
-        },
-        fetchSuggestions: function () {
-            axios.post('/search', {q: this.query})
-                .then(function ({data}) {
-                    console.log(data);
-                });
-        }
-    }
 });
