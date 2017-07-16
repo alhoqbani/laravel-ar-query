@@ -24820,6 +24820,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     props: ['posts'],
     data: function data() {
         return {
+            vuePost: this.posts,
             query: ''
         };
     },
@@ -24872,12 +24873,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.query = $event.target.value
       }
     }
-  })]), _vm._v(" "), _vm._l((_vm.posts), function(post) {
+  })]), _vm._v(" "), _vm._l((_vm.vuePost), function(post) {
     return _c('a', {
       key: post.id,
       staticClass: "list-group-item",
       attrs: {
-        "href": "#"
+        "href": post.path
       },
       domProps: {
         "textContent": _vm._s(post.title)

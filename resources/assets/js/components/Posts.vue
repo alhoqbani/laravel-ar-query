@@ -1,7 +1,7 @@
 <template>
     <div class="list-group">
         <p><input class="form-control" type="text" v-model="query" @keyup="suggest" placeholder="فرز حسب الاسم.."></p>
-        <a href="#" v-for="post in posts" v-text="post.title" :key="post.id" class="list-group-item"></a>
+        <a :href="post.path" v-for="post in vuePost" v-text="post.title" :key="post.id" class="list-group-item"></a>
     </div>
 </template>
 
@@ -11,6 +11,7 @@
         props: ['posts'],
         data: function () {
             return {
+                vuePost: this.posts,
                 query: '',
             }
         },
