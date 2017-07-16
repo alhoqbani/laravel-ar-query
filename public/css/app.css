@@ -1,4 +1,4 @@
-/*!
+@import url(//fonts.googleapis.com/earlyaccess/droidarabicnaskh.css);@import url(//fonts.googleapis.com/earlyaccess/droidarabickufi.css);/*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -9079,10 +9079,27 @@ html {
   direction: ltr;
 }
 body {
+  font-family: 'Droid Arabic Naskh', serif;
   padding-top: 100px;
+  padding-bottom: 100px;
   direction: ltr;
   height: 100%;
 }
 .rbody {
   direction: rtl;
+}
+.post .post_title {
+  font-family: 'Droid Arabic Kufi', sans-serif;
+  text-shadow: 0 1px 0 black;
+}
+.post .post_title h2 {
+  line-height: 1.5;
+}
+.post .post_meta {
+  margin: 20px 0;
+  border-bottom: solid black 1px;
+}
+.post .post_text {
+  font-size: 1.2em;
+  line-height: 2.5;
 }

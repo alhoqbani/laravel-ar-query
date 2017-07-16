@@ -1,5 +1,8 @@
 @import "~bootstrap/less/bootstrap";
 @import "~bootstrap-rtl/less/bootstrap-rtl";
+@import url(//fonts.googleapis.com/earlyaccess/droidarabicnaskh.css);
+@import url(//fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+
 
 html {
   position: relative;
@@ -8,11 +11,34 @@ html {
 }
 
 body {
+  font-family: 'Droid Arabic Naskh', serif;
   padding-top: 100px;
+  padding-bottom: 100px;
   direction: ltr;
   height: 100%;
 }
 
 .rbody {
   direction: rtl;
+}
+
+
+// Post Page
+
+.post {
+  .post_title {
+    font-family: 'Droid Arabic Kufi', sans-serif;
+    text-shadow: 0 1px 0 black;
+    h2 {
+      line-height: 1.5;
+    }
+  }
+  .post_meta {
+    margin: 20px 0;
+    border-bottom: solid black 1px;
+  }
+  .post_text {
+    font-size: 1.2em;
+    line-height: 2.5;
+  }
 }
