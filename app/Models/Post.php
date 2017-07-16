@@ -21,4 +21,12 @@ class Post extends Model
     {
         return route('posts.show', $this);
     }
+    
+    public function toArray()
+    {
+        return array_merge(
+            parent::toArray(),
+            ['path' => $this->path()]
+        );
+    }
 }
