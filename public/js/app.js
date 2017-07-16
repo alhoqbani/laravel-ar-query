@@ -24814,6 +24814,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'posts',
@@ -24832,13 +24835,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         suggest: function suggest() {
             if (this.query.length > 3) {
                 this.fetchSuggestions();
+            } else {
+                this.vuePost = this.posts;
             }
         },
         fetchSuggestions: function fetchSuggestions() {
-            axios.post('/search', { q: this.query }).then(function (_ref) {
+            var vm = this;
+            axios.post('/posts/suggest', { q: this.query }).then(function (_ref) {
                 var data = _ref.data;
 
-                console.log(data);
+                vm.vuePost = data;
             });
         }
     }
@@ -24851,7 +24857,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "list-group"
-  }, [_c('p', [_c('input', {
+  }, [_c('div', {
+    staticClass: "form-group"
+  }, [_vm._m(0), _vm._v(" "), _c('p', [_c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -24873,7 +24881,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.query = $event.target.value
       }
     }
-  })]), _vm._v(" "), _vm._l((_vm.vuePost), function(post) {
+  })])]), _vm._v(" "), _vm._l((_vm.vuePost), function(post) {
     return _c('a', {
       key: post.id,
       staticClass: "list-group-item",
@@ -24885,7 +24893,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     })
   })], 2)
-},staticRenderFns: []}
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('p', {
+    staticClass: "help-block"
+  }, [_vm._v("  ابحث بكلمات مفتاحية لفزر النتائج. "), _c('small', [_vm._v(" مثال: الالكتروني")])])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()

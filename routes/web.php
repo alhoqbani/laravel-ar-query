@@ -13,6 +13,7 @@
 
 Route::get('/', 'PostsController@index')->name('posts.index');
 Route::get('/{post}', 'PostsController@show')->name('posts.show');
+Route::post('posts/suggest', 'PostsController@suggest')->name('posts.suggest');
 
 Route::get('search', 'SearchController@index')->name('search');
 Route::post('search', 'SearchController@suggest')->name('search');

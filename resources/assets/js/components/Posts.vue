@@ -1,6 +1,9 @@
 <template>
     <div class="list-group">
-        <p><input class="form-control" type="text" v-model="query" @keyup="suggest" placeholder="فرز حسب الاسم.."></p>
+        <div class="form-group">
+            <p class="help-block">  ابحث بكلمات مفتاحية لفزر النتائج. <small> مثال: الالكتروني</small></p>
+            <p><input class="form-control" type="text" v-model="query" @keyup="suggest" placeholder="فرز حسب الاسم.."></p>
+        </div>
         <a :href="post.path" v-for="post in vuePost" v-text="post.title" :key="post.id" class="list-group-item"></a>
     </div>
 </template>
@@ -22,12 +25,15 @@
             suggest: function () {
                 if (this.query.length > 3) {
                     this.fetchSuggestions();
+                } else {
+                    this.vuePost = this.posts;
                 }
             },
             fetchSuggestions: function () {
-                axios.post('/search', {q: this.query})
+                let vm = this;
+                axios.post('/posts/suggest', {q: this.query})
                     .then(function ({data}) {
-                        console.log(data);
+                        vm.vuePost = data;
                     });
             }
         }
