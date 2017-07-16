@@ -24817,6 +24817,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'posts',
@@ -24824,7 +24840,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             vuePost: this.posts,
-            query: ''
+            query: '',
+            sql: '',
+            bindings: ''
         };
     },
     mounted: function mounted() {
@@ -24837,6 +24855,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 this.fetchSuggestions();
             } else {
                 this.vuePost = this.posts;
+                vm.sql = '';
+                vm.bindings = '';
             }
         },
         fetchSuggestions: function fetchSuggestions() {
@@ -24844,7 +24864,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.post('/posts/suggest', { q: this.query }).then(function (_ref) {
                 var data = _ref.data;
 
-                vm.vuePost = data;
+                console.log(data);
+                vm.vuePost = data.results;
+                vm.sql = data.sql;
+                vm.bindings = data.bindings;
             });
         }
     }
@@ -24855,7 +24878,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
+  return _c('div', [_c('div', {
+    staticClass: "well",
+    attrs: {
+      "dir": "ltr"
+    }
+  }, [_c('p', [_vm._v("Count: " + _vm._s(_vm.vuePost.length))]), _vm._v(" "), _c('p', [_vm._v("SQL: " + _vm._s(_vm.sql))]), _vm._v("\n        Bindings: "), _c('code', [_c('ol', _vm._l((_vm.bindings), function(reg) {
+    return _c('li', {
+      domProps: {
+        "textContent": _vm._s(reg)
+      }
+    })
+  }))])]), _vm._v(" "), _c('div', {
     staticClass: "list-group"
   }, [_c('div', {
     staticClass: "form-group"
@@ -24892,11 +24926,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "textContent": _vm._s(post.title)
       }
     })
-  })], 2)
+  })], 2)])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('p', {
     staticClass: "help-block"
-  }, [_vm._v("  ابحث بكلمات مفتاحية لفزر النتائج. "), _c('small', [_vm._v(" مثال: الالكتروني")])])
+  }, [_vm._v(" ابحث بكلمات مفتاحية لفزر النتائج.\n                "), _c('small', [_vm._v("مثال: الالكتروني، التقنية")])])
 }]}
 module.exports.render._withStripped = true
 if (false) {

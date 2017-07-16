@@ -27,10 +27,13 @@ class PostsController extends Controller
         $regexPs = ArUtil::query()->regexpy($q);
         foreach ((array)$regexPs as $regex) {
             $query->where('title', 'regexp', $regex);
-            $query->orWhere('short_title', 'regexp', $regex);
         }
         $posts = $query->get(['id', 'title']);
         
-        return $posts->toJson();
+        return response()->json([
+            'results'  => $posts->toArray(),
+            'sql'      => $query->toSql(),
+            'bindings' => $query->getBindings(),
+        ]);
     }
 }
