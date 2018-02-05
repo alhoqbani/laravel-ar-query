@@ -41,6 +41,7 @@
         },
         methods: {
             suggest: function () {
+                let vm = this;
                 if (this.query.length > 3) {
                     this.fetchSuggestions();
                 } else {
