@@ -11,6 +11,10 @@
 |
 */
 
+// Elasticsearch
+Route::get('/elastic', 'elasticSearchController@index');
+
+// Mysql Search
 Route::get('/', 'PostsController@index')->name('posts.index');
 Route::get('/{post}', 'PostsController@show')->name('posts.show');
 Route::post('posts/suggest', 'PostsController@suggest')->name('posts.suggest');
