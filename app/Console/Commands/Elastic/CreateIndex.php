@@ -3,7 +3,6 @@
 namespace App\Console\Commands\Elastic;
 
 use App\Services\Elastic\ElasticManager;
-use Elasticsearch\Client;
 use Elasticsearch\ClientBuilder;
 use Illuminate\Console\Command;
 
