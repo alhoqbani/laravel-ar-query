@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Services\Elastic\Analyzer;
 use App\Services\Elastic\ElasticManager;
 use Illuminate\Database\Eloquent\Model;
 
@@ -40,7 +41,16 @@ class Post extends Model implements ElasticManager
      */
     public function getIndexSettings(): array
     {
-        return [];
+        return [
+            'number_of_shards'   => 1,
+            'number_of_replicas' => 0,
+            'mapper.dynamic'     => false, // Automatic mapping creation disabled per-index..
+            "analysis"           => [
+                "filter"    => Analyzer::getFilters(),
+                "tokenizer" => Analyzer::getTokenizers(),
+                "analyzer"  => Analyzer::getAnalyzers(),
+            ],
+        ];
     }
     
     /**
@@ -52,6 +62,58 @@ class Post extends Model implements ElasticManager
      */
     public function getIndexMappings(): array
     {
-        return [];
+        return [
+            'post' => [
+                '_source'    => [
+                    'enabled' => true,
+                ],
+                'properties' => [
+                    'title' => [
+                        'type'   => 'text',
+                        'fields' => [
+                            'arabic_default'  => [
+                                'type'     => 'text',
+                                'analyzer' => 'default_arabic',
+                            ],
+                            'arabic'          => [
+                                'type'     => 'text',
+                                'analyzer' => 'arabic',
+                            ],
+                            'arabic_hunspell' => [
+                                'type'     => 'text',
+                                'analyzer' => 'arabic_hunspell',
+                            ],
+                            'autocomplete'    => [
+                                'type'            => 'text',
+                                'analyzer'        => 'autocomplete',
+                                'search_analyzer' => 'autocomplete_search',
+                            ],
+                        ],
+                    ],
+                    'text'  => [
+                        'type'   => 'text',
+                        'fields' => [
+                            'arabic_default'  => [
+                                'type'     => 'text',
+                                'analyzer' => 'default_arabic',
+                            ],
+                            'arabic'          => [
+                                'type'     => 'text',
+                                'analyzer' => 'arabic',
+                            ],
+                            'arabic_hunspell' => [
+                                'type'     => 'text',
+                                'analyzer' => 'arabic_hunspell',
+                            ],
+                            'autocomplete'    => [
+                                'type'            => 'text',
+                                'analyzer'        => 'autocomplete',
+                                'search_analyzer' => 'autocomplete_search',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ];
     }
 }
