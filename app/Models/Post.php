@@ -116,4 +116,19 @@ class Post extends Model implements ElasticManager
             ],
         ];
     }
+    
+    
+    /**
+     * Get the indexable data array for the model.
+     *
+     * @return array
+     */
+    public function toSearchableArray()
+    {
+        return [
+            'title' => $this->title,
+            'text'  => $this->text,
+        ];
+    }
+    
 }
